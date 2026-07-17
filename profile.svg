@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 310" width="860" height="310">
+<defs>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Mono:wght@400;500&amp;display=swap');
+
+.bg { fill: #0f1f38; }
+
+.curve-fill {
+  stroke: none;
+  opacity: 0.12;
+  transition: opacity 0.4s;
+}
+.curve-stroke {
+  fill: none;
+  stroke-width: 2;
+  opacity: 0.3;
+}
+
+/* Prior — powder blue */
+.prior-fill   { fill: #a8c4d8; }
+.prior-stroke { stroke: #a8c4d8; }
+
+/* Likelihood — terracotta */
+.lik-fill   { fill: #c94f2a; }
+.lik-stroke { stroke: #c94f2a; }
+
+/* Posterior — cream/gold */
+.post-fill   { fill: #f5f0e8; }
+.post-stroke { stroke: #f5f0e8; }
+
+/* Highlight glow stroke — white outline + colored stroke */
+.glow-stroke {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+}
+
+/* Baseline */
+.baseline {
+  stroke: #d4cfc4;
+  stroke-width: 0.5;
+  opacity: 0.2;
+}
+
+/* Labels */
+.label-base {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+.label-prior    { fill: #a8c4d8; }
+.label-lik      { fill: #c94f2a; }
+.label-post     { fill: #f5f0e8; }
+
+.name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 54px;
+  font-weight: 400;
+  fill: #f5f0e8;
+  letter-spacing: -0.01em;
+}
+.name-em {
+  font-style: italic;
+  fill: #a8c4d8;
+}
+.tagline {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  fill: #a8c4d8;
+  opacity: 0.6;
+}
+.footer-text {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: #f5f0e8;
+  opacity: 0.28;
+}
+
+/* ── ANIMATION ──────────────────────────────────────────────── */
+/*
+  Cycle: 9s total, 3s per curve
+  prior:      0s–3s active
+  likelihood: 3s–6s active
+  posterior:  6s–9s active
+  Each: ramp up 0.3s, hold, ramp down 0.3s
+*/
+
+/* Fill brightens when active */
+@keyframes fill-prior {
+  0%,  100%      { opacity: 0.12; }
+  0%             { opacity: 0.12; }
+  3.3%           { opacity: 0.22; }
+  30%            { opacity: 0.22; }
+  33.3%          { opacity: 0.12; }
+}
+@keyframes fill-lik {
+  0%, 33.2%, 100% { opacity: 0.12; }
+  36.6%           { opacity: 0.22; }
+  63.2%           { opacity: 0.22; }
+  66.6%           { opacity: 0.12; }
+}
+@keyframes fill-post {
+  0%, 66.5%, 100% { opacity: 0.12; }
+  69.9%           { opacity: 0.22; }
+  96.5%           { opacity: 0.22; }
+  99.9%           { opacity: 0.12; }
+}
+
+/* Stroke brightens */
+@keyframes stroke-prior {
+  0%,  100%      { opacity: 0.3; }
+  3.3%           { opacity: 0.7; }
+  30%            { opacity: 0.7; }
+  33.3%          { opacity: 0.3; }
+}
+@keyframes stroke-lik {
+  0%, 33.2%, 100% { opacity: 0.3; }
+  36.6%           { opacity: 0.7; }
+  63.2%           { opacity: 0.7; }
+  66.6%           { opacity: 0.3; }
+}
+@keyframes stroke-post {
+  0%, 66.5%, 100% { opacity: 0.3; }
+  69.9%           { opacity: 0.7; }
+  96.5%           { opacity: 0.7; }
+  99.9%           { opacity: 0.3; }
+}
+
+/* Glow outline appears */
+@keyframes glow-prior {
+  0%,  100%      { opacity: 0; }
+  3.3%           { opacity: 0.55; }
+  30%            { opacity: 0.55; }
+  33.3%          { opacity: 0; }
+}
+@keyframes glow-lik {
+  0%, 33.2%, 100% { opacity: 0; }
+  36.6%           { opacity: 0.55; }
+  63.2%           { opacity: 0.55; }
+  66.6%           { opacity: 0; }
+}
+@keyframes glow-post {
+  0%, 66.5%, 100% { opacity: 0; }
+  69.9%           { opacity: 0.55; }
+  96.5%           { opacity: 0.55; }
+  99.9%           { opacity: 0; }
+}
+
+/* Label brightens */
+@keyframes label-prior {
+  0%,  100%      { opacity: 0.3; }
+  3.3%           { opacity: 1; }
+  30%            { opacity: 1; }
+  33.3%          { opacity: 0.3; }
+}
+@keyframes label-lik {
+  0%, 33.2%, 100% { opacity: 0.3; }
+  36.6%           { opacity: 1; }
+  63.2%           { opacity: 1; }
+  66.6%           { opacity: 0.3; }
+}
+@keyframes label-post {
+  0%, 66.5%, 100% { opacity: 0.3; }
+  69.9%           { opacity: 1; }
+  96.5%           { opacity: 1; }
+  99.9%           { opacity: 0.3; }
+}
+
+.anim-fill-prior   { animation: fill-prior   9s ease-in-out infinite; }
+.anim-fill-lik     { animation: fill-lik     9s ease-in-out infinite; }
+.anim-fill-post    { animation: fill-post    9s ease-in-out infinite; }
+
+.anim-stroke-prior { animation: stroke-prior 9s ease-in-out infinite; }
+.anim-stroke-lik   { animation: stroke-lik   9s ease-in-out infinite; }
+.anim-stroke-post  { animation: stroke-post  9s ease-in-out infinite; }
+
+.anim-glow-prior   { animation: glow-prior   9s ease-in-out infinite; }
+.anim-glow-lik     { animation: glow-lik     9s ease-in-out infinite; }
+.anim-glow-post    { animation: glow-post    9s ease-in-out infinite; }
+
+.anim-label-prior  { animation: label-prior  9s ease-in-out infinite; }
+.anim-label-lik    { animation: label-lik    9s ease-in-out infinite; }
+.anim-label-post   { animation: label-post   9s ease-in-out infinite; }
+</style>
+
+<pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+  <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#ffffff" stroke-width="0.4" opacity="0.04"/>
+</pattern>
+</defs>
+
+<!-- Background -->
+<rect width="860" height="310" class="bg"/>
+<rect width="860" height="310" fill="url(#grid)"/>
+
+<!-- Name + tagline — left side, vertically centered in top zone -->
+<text x="60" y="68" class="name">Kevin <tspan class="name-em">Linares</tspan></text>
+<text x="62" y="94" class="tagline">Survey Methodologist · Data Scientist · R &amp; Quarto</text>
+
+<!-- Hairline rule above chart -->
+<line x1="60" y1="114" x2="800" y2="114" class="baseline"/>
+
+<!-- ── CHART AREA: y 120–230 ─────────────────────────── -->
+
+<!-- PRIOR fill -->
+<path class="curve-fill prior-fill anim-fill-prior"
+  d="M 80 230 L 80 207 L 87 206.5 L 94 206 L 101 205.4 L 108 204.8 L 115 204 L 122 203.2 L 129 202.3 L 136 201.3 L 143 200.2 L 150 199 L 157 197.8 L 164 196.4 L 171 194.9 L 178 193.3 L 185 191.6 L 192 189.9 L 199 188 L 206 186.1 L 213 184 L 220 181.9 L 227 179.8 L 234 177.6 L 241 175.3 L 248 173 L 255 170.8 L 262 168.5 L 269 166.3 L 276 164.1 L 283 161.9 L 290 159.9 L 297 157.9 L 304 156.1 L 311 154.4 L 318 152.8 L 325 151.5 L 332 150.3 L 339 149.3 L 346 148.5 L 353 147.9 L 360 147.5 L 367 147.4 L 374 147.5 L 381 147.8 L 388 148.3 L 395 149.1 L 402 150 L 409 151.2 L 416 152.5 L 423 154 L 430 155.7 L 437 157.5 L 444 159.4 L 451 161.5 L 458 163.6 L 465 165.8 L 472 168 L 479 170.3 L 486 172.5 L 493 174.8 L 500 177.1 L 507 179.3 L 514 181.5 L 521 183.6 L 528 185.6 L 535 187.6 L 542 189.5 L 549 191.3 L 556 193 L 563 194.6 L 570 196.1 L 577 197.5 L 584 198.8 L 591 200 L 598 201.1 L 605 202.1 L 612 203 L 619 203.8 L 626 204.6 L 633 205.3 L 640 205.9 L 647 206.4 L 654 206.9 L 661 207.3 L 668 207.7 L 675 208 L 682 208.3 L 689 208.6 L 696 208.8 L 703 209 L 710 209.2 L 717 209.3 L 724 209.4 L 731 209.5 L 738 209.6 L 745 209.7 L 752 209.7 L 759 209.8 L 766 209.8 L 773 209.8 L 780 209.9 L 780 230 Z"/>
+
+<!-- LIKELIHOOD fill -->
+<path class="curve-fill lik-fill anim-fill-lik"
+  d="M 80 230 L 325 209.9 L 332 209.9 L 339 209.9 L 346 209.8 L 353 209.7 L 360 209.6 L 367 209.4 L 374 209.2 L 381 208.8 L 388 208.4 L 395 207.8 L 402 206.9 L 409 205.9 L 416 204.5 L 423 202.8 L 430 200.7 L 437 198 L 444 194.9 L 451 191.1 L 458 186.8 L 465 181.7 L 472 176 L 479 169.7 L 486 162.8 L 493 155.4 L 500 147.7 L 507 139.7 L 514 131.7 L 521 123.9 L 528 116.5 L 535 109.8 L 542 103.9 L 549 99.1 L 556 95.5 L 563 93.3 L 570 92.6 L 577 93.3 L 584 95.5 L 591 99.1 L 598 103.9 L 605 109.8 L 612 116.5 L 619 123.9 L 626 131.7 L 633 139.7 L 640 147.7 L 647 155.4 L 654 162.8 L 661 169.7 L 668 176 L 675 181.7 L 682 186.8 L 689 191.1 L 696 194.9 L 703 198 L 710 200.7 L 717 202.8 L 724 204.5 L 731 205.9 L 738 206.9 L 745 207.8 L 752 208.4 L 759 208.8 L 766 209.2 L 773 209.4 L 780 209.6 L 780 230 Z"/>
+
+<!-- POSTERIOR fill -->
+<path class="curve-fill post-fill anim-fill-post"
+  d="M 80 230 L 318 209.9 L 325 209.9 L 332 209.8 L 339 209.6 L 346 209.3 L 353 208.9 L 360 208.3 L 367 207.3 L 374 205.9 L 381 203.9 L 388 201.2 L 395 197.5 L 402 192.7 L 409 186.6 L 416 179 L 423 169.9 L 430 159.2 L 437 147.1 L 444 133.8 L 451 119.8 L 458 105.6 L 465 91.9 L 472 79.3 L 479 68.6 L 486 60.4 L 493 55.2 L 500 53.5 L 507 55.2 L 514 60.4 L 521 68.6 L 528 79.3 L 535 91.9 L 542 105.6 L 549 119.8 L 556 133.8 L 563 147.1 L 570 159.2 L 577 169.9 L 584 179 L 591 186.6 L 598 192.7 L 605 197.5 L 612 201.2 L 619 203.9 L 626 205.9 L 633 207.3 L 640 208.3 L 647 208.9 L 654 209.3 L 661 209.6 L 668 209.8 L 675 209.9 L 682 209.9 L 689 230 Z"/>
+
+<!-- PRIOR stroke -->
+<path class="curve-stroke prior-stroke anim-stroke-prior"
+  d="M 80 207 L 87 206.5 L 94 206 L 101 205.4 L 108 204.8 L 115 204 L 122 203.2 L 129 202.3 L 136 201.3 L 143 200.2 L 150 199 L 157 197.8 L 164 196.4 L 171 194.9 L 178 193.3 L 185 191.6 L 192 189.9 L 199 188 L 206 186.1 L 213 184 L 220 181.9 L 227 179.8 L 234 177.6 L 241 175.3 L 248 173 L 255 170.8 L 262 168.5 L 269 166.3 L 276 164.1 L 283 161.9 L 290 159.9 L 297 157.9 L 304 156.1 L 311 154.4 L 318 152.8 L 325 151.5 L 332 150.3 L 339 149.3 L 346 148.5 L 353 147.9 L 360 147.5 L 367 147.4 L 374 147.5 L 381 147.8 L 388 148.3 L 395 149.1 L 402 150 L 409 151.2 L 416 152.5 L 423 154 L 430 155.7 L 437 157.5 L 444 159.4 L 451 161.5 L 458 163.6 L 465 165.8 L 472 168 L 479 170.3 L 486 172.5 L 493 174.8 L 500 177.1 L 507 179.3 L 514 181.5 L 521 183.6 L 528 185.6 L 535 187.6 L 542 189.5 L 549 191.3 L 556 193 L 563 194.6 L 570 196.1 L 577 197.5 L 584 198.8 L 591 200 L 598 201.1 L 605 202.1 L 612 203 L 619 203.8 L 626 204.6 L 633 205.3 L 640 205.9 L 647 206.4 L 654 206.9 L 661 207.3 L 668 207.7 L 675 208 L 682 208.3 L 689 208.6 L 696 208.8 L 703 209 L 710 209.2 L 717 209.3 L 724 209.4 L 731 209.5 L 738 209.6 L 745 209.7 L 752 209.7 L 759 209.8 L 766 209.8 L 773 209.8 L 780 209.9"/>
+
+<!-- PRIOR glow outline -->
+<path class="glow-stroke prior-stroke anim-glow-prior"
+  d="M 80 207 L 87 206.5 L 94 206 L 101 205.4 L 108 204.8 L 115 204 L 122 203.2 L 129 202.3 L 136 201.3 L 143 200.2 L 150 199 L 157 197.8 L 164 196.4 L 171 194.9 L 178 193.3 L 185 191.6 L 192 189.9 L 199 188 L 206 186.1 L 213 184 L 220 181.9 L 227 179.8 L 234 177.6 L 241 175.3 L 248 173 L 255 170.8 L 262 168.5 L 269 166.3 L 276 164.1 L 283 161.9 L 290 159.9 L 297 157.9 L 304 156.1 L 311 154.4 L 318 152.8 L 325 151.5 L 332 150.3 L 339 149.3 L 346 148.5 L 353 147.9 L 360 147.5 L 367 147.4 L 374 147.5 L 381 147.8 L 388 148.3 L 395 149.1 L 402 150 L 409 151.2 L 416 152.5 L 423 154 L 430 155.7 L 437 157.5 L 444 159.4 L 451 161.5 L 458 163.6 L 465 165.8 L 472 168 L 479 170.3 L 486 172.5 L 493 174.8 L 500 177.1 L 507 179.3 L 514 181.5 L 521 183.6 L 528 185.6 L 535 187.6 L 542 189.5 L 549 191.3 L 556 193 L 563 194.6 L 570 196.1 L 577 197.5 L 584 198.8 L 591 200 L 598 201.1 L 605 202.1 L 612 203 L 619 203.8 L 626 204.6 L 633 205.3 L 640 205.9 L 647 206.4 L 654 206.9 L 661 207.3 L 668 207.7 L 675 208 L 682 208.3 L 689 208.6 L 696 208.8 L 703 209 L 710 209.2 L 717 209.3 L 724 209.4 L 731 209.5 L 738 209.6 L 745 209.7 L 752 209.7 L 759 209.8 L 766 209.8 L 773 209.8 L 780 209.9"/>
+
+<!-- LIKELIHOOD stroke -->
+<path class="curve-stroke lik-stroke anim-stroke-lik"
+  d="M 325 209.9 L 332 209.9 L 339 209.9 L 346 209.8 L 353 209.7 L 360 209.6 L 367 209.4 L 374 209.2 L 381 208.8 L 388 208.4 L 395 207.8 L 402 206.9 L 409 205.9 L 416 204.5 L 423 202.8 L 430 200.7 L 437 198 L 444 194.9 L 451 191.1 L 458 186.8 L 465 181.7 L 472 176 L 479 169.7 L 486 162.8 L 493 155.4 L 500 147.7 L 507 139.7 L 514 131.7 L 521 123.9 L 528 116.5 L 535 109.8 L 542 103.9 L 549 99.1 L 556 95.5 L 563 93.3 L 570 92.6 L 577 93.3 L 584 95.5 L 591 99.1 L 598 103.9 L 605 109.8 L 612 116.5 L 619 123.9 L 626 131.7 L 633 139.7 L 640 147.7 L 647 155.4 L 654 162.8 L 661 169.7 L 668 176 L 675 181.7 L 682 186.8 L 689 191.1 L 696 194.9 L 703 198 L 710 200.7 L 717 202.8 L 724 204.5 L 731 205.9 L 738 206.9 L 745 207.8 L 752 208.4 L 759 208.8 L 766 209.2 L 773 209.4 L 780 209.6"/>
+
+<!-- LIKELIHOOD glow -->
+<path class="glow-stroke lik-stroke anim-glow-lik"
+  d="M 325 209.9 L 332 209.9 L 339 209.9 L 346 209.8 L 353 209.7 L 360 209.6 L 367 209.4 L 374 209.2 L 381 208.8 L 388 208.4 L 395 207.8 L 402 206.9 L 409 205.9 L 416 204.5 L 423 202.8 L 430 200.7 L 437 198 L 444 194.9 L 451 191.1 L 458 186.8 L 465 181.7 L 472 176 L 479 169.7 L 486 162.8 L 493 155.4 L 500 147.7 L 507 139.7 L 514 131.7 L 521 123.9 L 528 116.5 L 535 109.8 L 542 103.9 L 549 99.1 L 556 95.5 L 563 93.3 L 570 92.6 L 577 93.3 L 584 95.5 L 591 99.1 L 598 103.9 L 605 109.8 L 612 116.5 L 619 123.9 L 626 131.7 L 633 139.7 L 640 147.7 L 647 155.4 L 654 162.8 L 661 169.7 L 668 176 L 675 181.7 L 682 186.8 L 689 191.1 L 696 194.9 L 703 198 L 710 200.7 L 717 202.8 L 724 204.5 L 731 205.9 L 738 206.9 L 745 207.8 L 752 208.4 L 759 208.8 L 766 209.2 L 773 209.4 L 780 209.6"/>
+
+<!-- POSTERIOR stroke -->
+<path class="curve-stroke post-stroke anim-stroke-post"
+  d="M 318 209.9 L 325 209.9 L 332 209.8 L 339 209.6 L 346 209.3 L 353 208.9 L 360 208.3 L 367 207.3 L 374 205.9 L 381 203.9 L 388 201.2 L 395 197.5 L 402 192.7 L 409 186.6 L 416 179 L 423 169.9 L 430 159.2 L 437 147.1 L 444 133.8 L 451 119.8 L 458 105.6 L 465 91.9 L 472 79.3 L 479 68.6 L 486 60.4 L 493 55.2 L 500 53.5 L 507 55.2 L 514 60.4 L 521 68.6 L 528 79.3 L 535 91.9 L 542 105.6 L 549 119.8 L 556 133.8 L 563 147.1 L 570 159.2 L 577 169.9 L 584 179 L 591 186.6 L 598 192.7 L 605 197.5 L 612 201.2 L 619 203.9 L 626 205.9 L 633 207.3 L 640 208.3 L 647 208.9 L 654 209.3 L 661 209.6 L 668 209.8 L 675 209.9 L 682 209.9 L 689 210"/>
+
+<!-- POSTERIOR glow -->
+<path class="glow-stroke post-stroke anim-glow-post"
+  d="M 318 209.9 L 325 209.9 L 332 209.8 L 339 209.6 L 346 209.3 L 353 208.9 L 360 208.3 L 367 207.3 L 374 205.9 L 381 203.9 L 388 201.2 L 395 197.5 L 402 192.7 L 409 186.6 L 416 179 L 423 169.9 L 430 159.2 L 437 147.1 L 444 133.8 L 451 119.8 L 458 105.6 L 465 91.9 L 472 79.3 L 479 68.6 L 486 60.4 L 493 55.2 L 500 53.5 L 507 55.2 L 514 60.4 L 521 68.6 L 528 79.3 L 535 91.9 L 542 105.6 L 549 119.8 L 556 133.8 L 563 147.1 L 570 159.2 L 577 169.9 L 584 179 L 591 186.6 L 598 192.7 L 605 197.5 L 612 201.2 L 619 203.9 L 626 205.9 L 633 207.3 L 640 208.3 L 647 208.9 L 654 209.3 L 661 209.6 L 668 209.8 L 675 209.9 L 682 209.9 L 689 210"/>
+
+<!-- Baseline rule -->
+<line x1="80" y1="230" x2="780" y2="230" class="baseline"/>
+
+<!-- Labels at peak positions -->
+<text x="368" y="244" text-anchor="middle" class="label-base label-prior anim-label-prior">Prior</text>
+<text x="570" y="244" text-anchor="middle" class="label-base label-lik anim-label-lik">Likelihood</text>
+<text x="500" y="244" text-anchor="middle" class="label-base label-post anim-label-post">Posterior</text>
+
+<!-- Bottom hairline -->
+<line x1="60" y1="258" x2="800" y2="258" class="baseline"/>
+
+<!-- Footer -->
+<text x="60" y="278" class="footer-text">JPSM · University of Maryland · University of Michigan Survey Research Center</text>
+</svg>
