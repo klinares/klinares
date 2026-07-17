@@ -4,15 +4,8 @@
 
 <br/>
 
-<details>
-<summary><img src="https://img.shields.io/static/v1?label=credentials&message=click+to+expand&color=c94f2a&labelColor=0f1f38&style=for-the-badge" alt="credentials" /></summary>
-
-<br/>
 
 `MS · Survey and Data Science`
-`Joint Program in Survey Methodology · University of Maryland`
-`Program in Survey and Data Science · University of Michigan Survey Research Center`
-
 `MA · Psychology`
 
 </details>
@@ -27,13 +20,13 @@
 
 ---
 
-*not the cleverest survey,*
+*Not the cleverest survey,*
 *not the cleanest sample,*
 *just the design that reaches who gets left out,*
 *that turns scattered responses into one honest answer*
 *a decision-maker can actually use.*
 
-*i ask the right questions.*
+*I ask the right questions.*
 
 ---
 
@@ -51,6 +44,5 @@
 
 <br/>
 
-<sub><code>University of Maryland JPSM · University of Michigan Survey Research Center</code></sub>
 
 </div>
