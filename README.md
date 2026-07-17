@@ -27,9 +27,13 @@
 
 ---
 
-I'm a survey methodologist and data scientist trained through the **University of Maryland Joint Program in Survey Methodology** and the **University of Michigan Survey Research Center**. My work sits at the intersection of probability sampling, measurement science, and applied data science — with a particular focus on how classical survey theory extends to the messy, non-probability data streams (social media, administrative records, LLM-generated content) that increasingly supplement traditional surveys.
+*not the cleverest survey,*
+*not the cleanest sample,*
+*just the design that reaches who gets left out,*
+*that turns scattered responses into one honest answer*
+*a decision-maker can actually use.*
 
-Most of what lives here is built in **R** and rendered through **Quarto** — reproducible pipelines with methods documentation that travels with the code.
+*i ask the right questions.*
 
 ---
 
@@ -43,11 +47,7 @@ Most of what lives here is built in **R** and rendered through **Quarto** — re
 
 [![Detroit Multi-Stage Sample](https://img.shields.io/badge/Detroit%20Transportation%20·%20Multi--Stage%20Survey%20Design-1a3255?style=for-the-badge&labelColor=0f1f38&logo=r&logoColor=a8c4d8)](https://github.com/klinares/eight-mile-sample)
 
-[![Michigan Teen Survey](https://img.shields.io/badge/Michigan%20Teen%20Smoking%20%26%20Drug%20Use%20·%20Survey%20Design-1a3255?style=for-the-badge&labelColor=0f1f38&logo=r&logoColor=a8c4d8)](https://github.com/klinares/michigan-teen-survey-design)
-
 [![Moneyball FC](https://img.shields.io/badge/Moneyball%20FC%20·%20Cross--Classified%20Multilevel%20Model-2d4a6e?style=for-the-badge&labelColor=0f1f38&logo=r&logoColor=a8c4d8)](https://github.com/klinares/Moneyball_FC)
-
-[![Latent Class Analysis](https://img.shields.io/badge/Latent%20Class%20Analysis%20·%20Bayesian%20Mixture%20Model-2d4a6e?style=for-the-badge&labelColor=0f1f38&logo=r&logoColor=a8c4d8)](https://github.com/klinares/mixture_models)
 
 <br/>
 
